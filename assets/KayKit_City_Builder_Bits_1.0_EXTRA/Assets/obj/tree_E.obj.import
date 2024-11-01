@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://56731etg3eui"
+path="res://.godot/imported/tree_E.obj-f1bf13cd66ef643c8daf4da07296d146.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_E.obj-f1bf13cd66ef643c8daf4da07296d146.mesh"]
+
+source_file="res://assets/KayKit_City_Builder_Bits_1.0_EXTRA/Assets/obj/tree_E.obj"
+dest_files=["res://.godot/imported/tree_E.obj-f1bf13cd66ef643c8daf4da07296d146.mesh", "res://.godot/imported/tree_E.obj-f1bf13cd66ef643c8daf4da07296d146.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
