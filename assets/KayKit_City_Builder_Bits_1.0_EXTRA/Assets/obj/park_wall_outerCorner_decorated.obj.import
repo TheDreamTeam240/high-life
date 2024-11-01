@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cntirk2cy2rt2"
+path="res://.godot/imported/park_wall_outerCorner_decorated.obj-276da509ec60140f4a3a39512ca6b2c0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/park_wall_outerCorner_decorated.obj-276da509ec60140f4a3a39512ca6b2c0.mesh"]
+
+source_file="res://assets/KayKit_City_Builder_Bits_1.0_EXTRA/Assets/obj/park_wall_outerCorner_decorated.obj"
+dest_files=["res://.godot/imported/park_wall_outerCorner_decorated.obj-276da509ec60140f4a3a39512ca6b2c0.mesh", "res://.godot/imported/park_wall_outerCorner_decorated.obj-276da509ec60140f4a3a39512ca6b2c0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

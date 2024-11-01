@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgu0aiiyynytv"]
+
+[ext_resource type="Script" path="res://world_generator.gd" id="1_030ni"]
+[ext_resource type="Script" path="res://player.gd" id="2_wvjp0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_do6if"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oxthb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nxjc"]
+
+[sub_resource type="Sky" id="Sky_0qd5x"]
+sky_material = SubResource("ProceduralSkyMaterial_6nxjc")
+
+[sub_resource type="Environment" id="Environment_1goif"]
+background_mode = 2
+sky = SubResource("Sky_0qd5x")
+
+[node name="main" type="Node"]
+
+[node name="WorldGenerator" type="Node" parent="."]
+script = ExtResource("1_030ni")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66456, 0)
+script = ExtResource("2_wvjp0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_do6if")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_oxthb")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.999842, 0, -0.0177665, 0, 1, 0, 0.0177665, 0, 0.999842, 0, 1.08603, 2.265)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1goif")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cewvcep008ien"
+path="res://.godot/imported/firehydrant.obj-587214d59ef96b22a426ff7e6557cd7f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/firehydrant.obj-587214d59ef96b22a426ff7e6557cd7f.mesh"]
+
+source_file="res://assets/KayKit_City_Builder_Bits_1.0_EXTRA/Assets/obj/firehydrant.obj"
+dest_files=["res://.godot/imported/firehydrant.obj-587214d59ef96b22a426ff7e6557cd7f.mesh", "res://.godot/imported/firehydrant.obj-587214d59ef96b22a426ff7e6557cd7f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
