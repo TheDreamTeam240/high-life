@@ -12,6 +12,8 @@ extends CharacterBody3D
 	$"Dependency bar5/RichTextLabel"
 ]
 
+@onready var rich_text_label = $Control/RichTextLabel
+
 @onready var progress_bar: Array = [
 	$"Dependency bar/TextureProgressBar",
 	$"Dependency bar2/TextureProgressBar",
@@ -47,6 +49,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
 	container.visible = false
+	rich_text_label.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	update_messages()
 
@@ -125,7 +128,7 @@ func _process(delta: float) -> void:
 	if (drunk):
 		shake_camera()
 	for bar in progress_bar:
-		bar.value -= 0.4
+		bar.value -= 0.5
 	set_dependecy()
 
 func _on_dealer_body_entered(body: Node3D) -> void:
@@ -136,6 +139,9 @@ func _on_shop_body_entered(body: Node3D) -> void:
 
 func set_dependecy() -> void:
 	for bar in progress_bar:
+		if bar.value <= 0:
+			rich_text_label.visible = true
+			is_locked = true
 		if bar.value <= 1500:
 			drunk = true
 			break
