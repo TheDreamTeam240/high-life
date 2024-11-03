@@ -4,6 +4,8 @@ extends Button  # Assurez-vous que ce script est attaché à un nœud de type Bu
 @onready var nbr = $Number
 
 @onready var inventory = $"../../"
+@onready var bar = $"../../../Dependency bar/TextureProgressBar"
+
 var is_clik = false
 func _ready() -> void:
 	# Connecte le signal `pressed()` du bouton en utilisant Callable
@@ -13,6 +15,7 @@ func _process(delta: float) -> void:
 	if is_clik:
 		inventory._setNumber(nbr, 0)
 		is_clik = false
+		bar.value += 2000
 
 func _on_button_pressed() -> void:
 	# Diminue la valeur de Number de 1
