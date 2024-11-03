@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://cgxfty7pr81by"]
 
-[ext_resource type="MeshLibrary" uid="uid://bm4jy8nqpr0nm" path="res://tiles.tres" id="2_xrpxd"]
+[ext_resource type="MeshLibrary" uid="uid://iwafmomg34d1" path="res://tiles.tres" id="2_xrpxd"]
 [ext_resource type="PackedScene" uid="uid://clcfqigomsjpt" path="res://scenes/player.tscn" id="3_huuv3"]
-[ext_resource type="PackedScene" uid="uid://cgrmbumtiv5k2" path="res://scenes/dealer.tscn" id="3_m28q0"]
+[ext_resource type="PackedScene" uid="uid://piiev5kjv68w" path="res://scenes/dealer.tscn" id="3_m28q0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nxjc"]
 
