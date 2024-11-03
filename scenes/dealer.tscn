@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=16 format=3 uid="uid://drdrnl3tg0gpd"]
-=======
 [gd_scene load_steps=16 format=3 uid="uid://cgrmbumtiv5k2"]
->>>>>>> 7948011163055050ec04750f1bc41789424173fa
 
 [ext_resource type="PackedScene" uid="uid://d21wp4s70gssi" path="res://assets/Dealer_Assets/dealer.glb" id="1_p0slh"]
 
