@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=3 uid="uid://5nato0ctl1by"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_iaqks"]
+[ext_resource type="Texture2D" uid="uid://bcirurkc3du7e" path="res://thumbnail_high-life 2.png" id="2_2hjml"]
+[ext_resource type="Texture2D" uid="uid://clfbrfw13twm2" path="res://thumbnail_high-life 3.png" id="3_fsqm5"]
+[ext_resource type="Texture2D" uid="uid://splbdt0hvkr5" path="res://thumbnail_high-life 4.png" id="4_0ltbd"]
+[ext_resource type="Texture2D" uid="uid://2abnpeeqda0l" path="res://thumbnail_high-life 5.png" id="5_dhcb8"]
+[ext_resource type="Texture2D" uid="uid://dc75is7ueed8u" path="res://thumbnail_high-life 6.png" id="6_txtpk"]
+[ext_resource type="Texture2D" uid="uid://bo74bqj567g3" path="res://thumbnail_high-life 7.png" id="7_l2tn6"]
+[ext_resource type="Texture2D" uid="uid://bgnl7vhcbqu0l" path="res://thumbnail_high-life 8.png" id="8_lhkq0"]
+[ext_resource type="Texture2D" uid="uid://chk0m130mkp5h" path="res://thumbnail_high-life 9.png" id="9_2tihe"]
+[ext_resource type="Texture2D" uid="uid://bbbhx0tq81uut" path="res://images.jpeg" id="10_n44ee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brr4d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jn2g5"]
+texture = ExtResource("10_n44ee")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1gik"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fig5i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw2dt"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elap1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2hjml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fsqm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ltbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dhcb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_txtpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l2tn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lhkq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2tihe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iaqks")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.521569, 0.521569, 0.521569, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_brr4d")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jn2g5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.5
+offset_top = -91.0
+offset_right = 263.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k1gik")
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_fig5i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k1gik")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iw2dt")
+text = "Credit
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k1gik")
+text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(8, -357)
+scale = Vector2(0.430599, 0.358854)
+sprite_frames = SubResource("SpriteFrames_elap1")
+frame_progress = 0.493573
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_start_button_down"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
