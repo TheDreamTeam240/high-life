@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var player = $"."
 @onready var visuals = $visuals
 @onready var animate_player = $visuals/playerv1/AnimationPlayer
 @onready var camera_mount = $camera_mount
@@ -127,6 +128,21 @@ func _process(delta: float) -> void:
 	for bar in progress_bar:
 		bar.value -= 0.4
 	set_dependecy()
+
+	if Input.is_action_just_pressed("getItem"):    
+		# Define the target position and range
+		var target_position = Vector2(-5, -0)
+		var range_target = 0.5
+		# Check if the player is within 1 block of (10, 10)
+		if abs(player.global_position.x - target_position.x) <= range_target and abs(player.global_position.y - target_position.y) <= range_target:
+			container._addItem("poudre")
+			container._addItem("cana")
+			container._addItem("cig")
+			container._addItem("cofee")
+			container._addItem("bottle")
+
+
+	
 
 func _on_dealer_body_entered(body: Node3D) -> void:
 	get_tree().change_scene_to_file("res://Dealer.tscn")
