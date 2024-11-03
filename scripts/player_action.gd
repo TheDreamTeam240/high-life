@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var visuals = $visuals
 @onready var animate_player = $visuals/playerv1/AnimationPlayer
 @onready var camera_mount = $camera_mount
+@onready var container = $InventoryWindow
 @onready var rich_text_labels: Array = [
 	$"Dependency bar/RichTextLabel",
 	$"Dependency bar2/RichTextLabel",
@@ -45,15 +46,23 @@ var current_index: int = 0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
+	container.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	update_messages()
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * sens_horizontal))
-		visuals.rotate_y(deg_to_rad(event.relative.x * sens_horizontal))
+		if !container.visible:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			rotate_y(deg_to_rad(-event.relative.x*sens_horizontal))
+			visuals.rotate_y(deg_to_rad(event.relative.x*sens_horizontal))
 
 func _physics_process(delta: float):
+	
+	if Input.is_action_just_pressed("inventory"):
+		container.visible = !container.visible
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	if !animate_player.is_playing():
 		is_locked = false
 	
