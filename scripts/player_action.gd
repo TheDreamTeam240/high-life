@@ -75,3 +75,9 @@ func _physics_process(delta: float):
 	
 	if !is_locked:
 		move_and_slide()
+
+func _on_dealer_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://Dealer.tscn")
+
+func _on_shop_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://Shop.tscn")
