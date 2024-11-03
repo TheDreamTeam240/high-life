@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbywpumeblnc4"]
+
+[ext_resource type="Texture2D" uid="uid://m4oivfdukf7i" path="res://assets/Dependencies bar/white progress bar (1) (1).png" id="1_uw6so"]
+
+[node name="Dependency bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 30.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 60.0
+value = 50.0
+texture_under = ExtResource("1_uw6so")
+texture_progress = ExtResource("1_uw6so")
+tint_under = Color(0, 0, 0, 0.368627)
+tint_over = Color(0.551201, 0.164949, 0.123389, 1)
+tint_progress = Color(0.352941, 0.784314, 0.0862745, 1)
