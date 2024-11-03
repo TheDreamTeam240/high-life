@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgxfty7pr81by"]
+[gd_scene load_steps=18 format=3 uid="uid://cgxfty7pr81by"]
 
 [ext_resource type="MeshLibrary" uid="uid://bm4jy8nqpr0nm" path="res://tiles.tres" id="2_xrpxd"]
 [ext_resource type="PackedScene" uid="uid://clcfqigomsjpt" path="res://scenes/player.tscn" id="3_huuv3"]
+[ext_resource type="PackedScene" uid="uid://drdrnl3tg0gpd" path="res://scenes/dealer.tscn" id="3_m28q0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nxjc"]
 
@@ -45,6 +46,9 @@ size = Vector3(9.91858, 3.57666, 1.73828)
 size = Vector3(5.88892, 3.43103, 1.45496)
 
 [node name="main" type="Node3D"]
+
+[node name="dealer" parent="." instance=ExtResource("3_m28q0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.22033, 0, 5.61716)
 
 [node name="CollisionShape3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.552719, 8)
