@@ -1,0 +1,214 @@
+[gd_scene load_steps=12 format=3 uid="uid://8boei3o6sutd"]
+
+[ext_resource type="Script" path="res://scripts/Slot1.gd" id="1_et7g8"]
+[ext_resource type="Texture2D" uid="uid://dfcqximuchc88" path="res://assets/poudre.png" id="2_0wsws"]
+[ext_resource type="Script" path="res://scripts/Slot2.gd" id="3_8f7pk"]
+[ext_resource type="Texture2D" uid="uid://borsa81ouplh" path="res://assets/feuille.png" id="3_w77fo"]
+[ext_resource type="Texture2D" uid="uid://cdjvmjqwhipad" path="res://assets/bouteille.png" id="4_x8kca"]
+[ext_resource type="Script" path="res://scripts/Slot3.gd" id="5_6ebqf"]
+[ext_resource type="Texture2D" uid="uid://c7oamhaw7smiw" path="res://assets/cigarette.png" id="5_64v7i"]
+[ext_resource type="Texture2D" uid="uid://bx3u8cb0rl005" path="res://assets/cofee.png" id="6_mdgj8"]
+[ext_resource type="Script" path="res://scripts/Slot4.gd" id="7_t8qgj"]
+[ext_resource type="Script" path="res://scripts/Slot5.gd" id="9_b4wjn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e46sa"]
+font_size = 25
+font_color = Color(1, 0.0313726, 0.0313726, 1)
+
+[node name="InventoryWindow" type="Panel"]
+offset_left = 268.0
+offset_top = 558.0
+offset_right = 858.0
+offset_bottom = 640.0
+
+[node name="SlotContainer" type="GridContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -31.0
+offset_right = 250.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+columns = 5
+
+[node name="Slot1" type="Button" parent="SlotContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+script = ExtResource("1_et7g8")
+
+[node name="Icon" type="TextureRect" parent="SlotContainer/Slot1"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -59.0
+offset_right = 119.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0wsws")
+expand_mode = 2
+
+[node name="Number" type="Label" parent="SlotContainer/Slot1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "1
+"
+label_settings = SubResource("LabelSettings_e46sa")
+
+[node name="Slot2" type="Button" parent="SlotContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+script = ExtResource("3_8f7pk")
+
+[node name="Icon" type="TextureRect" parent="SlotContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -61.0
+offset_right = 53.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w77fo")
+expand_mode = 1
+
+[node name="Number" type="Label" parent="SlotContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "1
+"
+label_settings = SubResource("LabelSettings_e46sa")
+
+[node name="Slot3" type="Button" parent="SlotContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+script = ExtResource("5_6ebqf")
+
+[node name="Icon" type="TextureRect" parent="SlotContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -58.0
+offset_right = 66.5
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_x8kca")
+expand_mode = 2
+
+[node name="Number" type="Label" parent="SlotContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "1
+"
+label_settings = SubResource("LabelSettings_e46sa")
+
+[node name="Slot4" type="Button" parent="SlotContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+script = ExtResource("7_t8qgj")
+
+[node name="Icon" type="TextureRect" parent="SlotContainer/Slot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -52.0
+offset_right = 92.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_64v7i")
+expand_mode = 2
+
+[node name="Number" type="Label" parent="SlotContainer/Slot4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "1
+"
+label_settings = SubResource("LabelSettings_e46sa")
+
+[node name="Slot5" type="Button" parent="SlotContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+script = ExtResource("9_b4wjn")
+
+[node name="Icon" type="TextureRect" parent="SlotContainer/Slot5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -56.0
+offset_right = 59.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mdgj8")
+expand_mode = 2
+
+[node name="Number" type="Label" parent="SlotContainer/Slot5"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "1
+"
+label_settings = SubResource("LabelSettings_e46sa")

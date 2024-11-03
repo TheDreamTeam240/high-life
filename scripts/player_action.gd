@@ -2,6 +2,15 @@ extends CharacterBody3D
 @onready var visuals = $visuals
 @onready var animate_player =$visuals/playerv1/AnimationPlayer
 @onready var camera_mount =$camera_mount
+@onready var container = $Inventory/InventoryWindow
+@onready var player = $"."
+#@onready var poudre = $SlotContainer/Slot1
+#@onready var cana = $SlotContainer/Slot2
+#@onready var bottle = $SlotContainer/Slot3
+#@onready var cig = $SlotContainer/Slot4
+#@onready var cofee = $SlotContainer/Slot5
+
+
 
 var SPEED = 2.0
 const JUMP_VELOCITY = 4.5
@@ -17,23 +26,40 @@ var is_locked = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	container.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x*sens_horizontal))
-		visuals.rotate_y(deg_to_rad(event.relative.x*sens_horizontal))
+		if !container.visible:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			rotate_y(deg_to_rad(-event.relative.x*sens_horizontal))
+			visuals.rotate_y(deg_to_rad(event.relative.x*sens_horizontal))
 
 
 func _physics_process(delta: float):
 	
+	if Input.is_action_just_pressed("inventory"):
+		container.visible = !container.visible
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	if Input.is_action_just_pressed("getItem"):
+		print("Pos:", player.global_position.x)
+		if player.global_position.x >= -4.62 and player.global_position.x <= -4.61:
+			container._addItem("poudre")
+		
+		
+	
 	if !animate_player.is_playing():
 		is_locked =  false
+		
 	
 	if Input.is_action_just_pressed("kick"):
-		if animate_player.current_animation != "fight":
-			animate_player.play("fight")
-			is_locked = true
+		if !container.visible:
+			if animate_player.current_animation != "fight":
+				animate_player.play("fight")
+				is_locked = true
 	
 	if Input.is_action_pressed("run"):
 		SPEED = running_speed
