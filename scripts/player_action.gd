@@ -11,8 +11,16 @@ extends CharacterBody3D
 	$"Dependency bar5/RichTextLabel"
 ]
 
+@onready var progress_bar: Array = [
+	$"Dependency bar/TextureProgressBar",
+	$"Dependency bar2/TextureProgressBar",
+	$"Dependency bar3/TextureProgressBar",
+	$"Dependency bar4/TextureProgressBar",
+	$"Dependency bar5/TextureProgressBar"
+]
+
 var SPEED = 2.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 2.5
 
 var walking_speed = 0.6
 var running_speed = 3.0
@@ -98,7 +106,8 @@ func update_messages() -> void:
 			current_index += 1
 
 func _process(delta: float) -> void:
-	pass
+	for bar in progress_bar:
+		bar.value -= 0.4
 
 func _on_dealer_body_entered(body: Node3D) -> void:
 	get_tree().change_scene_to_file("res://Dealer.tscn")
