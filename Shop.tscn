@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dujhaonj0megl"]
+
+[ext_resource type="Texture2D" uid="uid://bvowo0wktct7g" path="res://imageedit_2_6322122274.png" id="1_lu22d"]
+[ext_resource type="Texture2D" uid="uid://boxdo4kufrfpv" path="res://imageedit_1_2427805840.png" id="2_q2xgm"]
+[ext_resource type="Texture2D" uid="uid://bf5101jq2i37j" path="res://imageedit_3_6788536071.png" id="3_edxw1"]
+
+[sub_resource type="Theme" id="Theme_td2qa"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 4100.0
+
+[node name="Items" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 2
+
+[node name="Alcohol" type="TextureButton" parent="TextureRect/Items"]
+layout_mode = 2
+texture_normal = ExtResource("1_lu22d")
+texture_pressed = ExtResource("1_lu22d")
+texture_hover = ExtResource("1_lu22d")
+texture_disabled = ExtResource("1_lu22d")
+texture_focused = ExtResource("1_lu22d")
+
+[node name="Coffee" type="TextureButton" parent="TextureRect/Items"]
+layout_mode = 2
+texture_normal = ExtResource("2_q2xgm")
+texture_pressed = ExtResource("2_q2xgm")
+texture_hover = ExtResource("2_q2xgm")
+texture_disabled = ExtResource("2_q2xgm")
+texture_focused = ExtResource("2_q2xgm")
+
+[node name="Tabacco" type="TextureButton" parent="TextureRect/Items"]
+layout_mode = 2
+texture_normal = ExtResource("3_edxw1")
+texture_pressed = ExtResource("3_edxw1")
+texture_hover = ExtResource("3_edxw1")
+texture_disabled = ExtResource("3_edxw1")
+texture_focused = ExtResource("3_edxw1")
+
+[node name="Counts" type="HBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme = SubResource("Theme_td2qa")
+
+[node name="Alcohol" type="RichTextLabel" parent="TextureRect/Counts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Alcohol"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Coffee" type="RichTextLabel" parent="TextureRect/Counts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Coffee"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Tabacco" type="RichTextLabel" parent="TextureRect/Counts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Tabacco"
+fit_content = true
+autowrap_mode = 0

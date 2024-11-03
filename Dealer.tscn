@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vsrredep87a"]
+
+[ext_resource type="Texture2D" uid="uid://brymg72q4otbh" path="res://imageedit_5_3997487846.png" id="1_iy748"]
+[ext_resource type="Texture2D" uid="uid://cctltnlwouxb3" path="res://imageedit_7_3179530201.png" id="2_00oui"]
+
+[node name="Dealer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 4100.0
+offset_bottom = 4100.0
+
+[node name="Items" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 2
+
+[node name="Zamal" type="TextureButton" parent="TextureRect/Items"]
+layout_mode = 2
+texture_normal = ExtResource("1_iy748")
+texture_pressed = ExtResource("1_iy748")
+texture_hover = ExtResource("1_iy748")
+texture_disabled = ExtResource("1_iy748")
+texture_focused = ExtResource("1_iy748")
+
+[node name="Cocaine" type="TextureButton" parent="TextureRect/Items"]
+layout_mode = 2
+texture_normal = ExtResource("2_00oui")
+texture_pressed = ExtResource("2_00oui")
+texture_hover = ExtResource("2_00oui")
+texture_disabled = ExtResource("2_00oui")
+texture_focused = ExtResource("2_00oui")
+
+[node name="Counts" type="HBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Zamal" type="RichTextLabel" parent="TextureRect/Counts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Zamal: 1"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Cocaine" type="RichTextLabel" parent="TextureRect/Counts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Cocaine: 1"
+fit_content = true
+autowrap_mode = 0
