@@ -99,3 +99,9 @@ func update_messages() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+func _on_dealer_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://Dealer.tscn")
+
+func _on_shop_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://Shop.tscn")

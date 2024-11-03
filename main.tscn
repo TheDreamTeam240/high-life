@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgxfty7pr81by"]
+[gd_scene load_steps=19 format=3 uid="uid://cgxfty7pr81by"]
 
 [ext_resource type="MeshLibrary" uid="uid://bm4jy8nqpr0nm" path="res://tiles.tres" id="2_xrpxd"]
 [ext_resource type="PackedScene" uid="uid://clcfqigomsjpt" path="res://scenes/player.tscn" id="3_huuv3"]
@@ -45,6 +45,13 @@ size = Vector3(9.91858, 3.57666, 1.73828)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tam7g"]
 size = Vector3(5.88892, 3.43103, 1.45496)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jiufj"]
+margin = 0.0
+radius = 0.302
+height = 3.384
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p0y5s"]
+
 [node name="main" type="Node3D"]
 
 [node name="dealer" parent="." instance=ExtResource("3_m28q0")]
@@ -57,6 +64,7 @@ size = Vector3(100, 1, 100)
 
 [node name="Player" parent="." instance=ExtResource("3_huuv3")]
 transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, -2.96938, -0.0303617, 0)
+collision_layer = 8
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1goif")
@@ -111,3 +119,24 @@ shape = SubResource("BoxShape3D_jaaoi")
 [node name="Building10" type="CollisionShape3D" parent="BuildingCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91173, 1.21552, 17.0512)
 shape = SubResource("BoxShape3D_tam7g")
+
+[node name="Dealer" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99856, -0.343012, 4.24135)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dealer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674316, 0.221497, 0)
+shape = SubResource("CapsuleShape3D_jiufj")
+
+[node name="Shop" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99856, -0.343012, 4.24135)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85632, -0.34613, -3.54329)
+shape = SubResource("CapsuleShape3D_p0y5s")
+
+[connection signal="body_entered" from="Dealer" to="Player" method="_on_dealer_body_entered"]
+[connection signal="body_entered" from="Shop" to="Player" method="_on_shop_body_entered"]
