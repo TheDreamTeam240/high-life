@@ -19,6 +19,8 @@ extends CharacterBody3D
 	$"Dependency bar5/TextureProgressBar"
 ]
 
+@onready var camera = $camera_mount/Camera3D
+
 var SPEED = 2.0
 const JUMP_VELOCITY = 2.5
 
@@ -27,6 +29,7 @@ var running_speed = 3.0
 
 var running = false
 var is_locked = false
+var drunk = false
 
 var messages: Array = [
 	"Café",
@@ -59,7 +62,7 @@ func _physics_process(delta: float):
 			animate_player.play("fight")
 			is_locked = true
 	
-	if Input.is_action_pressed("run"):
+	if Input.is_action_pressed("run") and !drunk:
 		SPEED = running_speed
 		running = true
 	else:
@@ -77,11 +80,15 @@ func _physics_process(delta: float):
 	if direction:
 		if !is_locked:
 			if running:
-				if animate_player.current_animation != "run":
+				if animate_player.current_animation != "run" and !drunk:
 					animate_player.play("run")
+				if (drunk):
+					animate_player.play("walk_drunk")
 			else:
-				if animate_player.current_animation != "walk_normal":
+				if animate_player.current_animation != "walk_normal" and !drunk:
 					animate_player.play("walk_normal")
+				if (drunk):
+					animate_player.play("walk_drunk")
 		
 			visuals.look_at(position + direction * -1)
 		velocity.x = direction.x * SPEED
@@ -104,13 +111,34 @@ func update_messages() -> void:
 		for label in rich_text_labels:
 			label.add_text(messages[current_index] + "\n")
 			current_index += 1
-
+ # Noir avec alpha
 func _process(delta: float) -> void:
+	if (drunk):
+		shake_camera()
 	for bar in progress_bar:
 		bar.value -= 0.4
+	set_dependecy()
 
 func _on_dealer_body_entered(body: Node3D) -> void:
 	get_tree().change_scene_to_file("res://Dealer.tscn")
 
 func _on_shop_body_entered(body: Node3D) -> void:
 	get_tree().change_scene_to_file("res://Shop.tscn")
+
+func set_dependecy() -> void:
+	for bar in progress_bar:
+		if bar.value <= 1500:
+			drunk = true
+			break
+		else:
+			drunk = false
+
+var shake_strength = 0.01
+var shake_duration = 0.01
+
+func shake_camera():
+	shake_strength += 0.00005
+	var shake_offset = Vector3(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength), 0)
+	camera.position += shake_offset
+	await get_tree().create_timer(shake_duration).timeout
+	camera.position -= shake_offset

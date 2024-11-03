@@ -50,6 +50,9 @@ size = Vector3(5.88892, 3.43103, 1.45496)
 [node name="dealer" parent="." instance=ExtResource("3_m28q0")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.22033, 0, 5.61716)
 
+[node name="dealer2" parent="." instance=ExtResource("3_m28q0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 6.3898, 0, 17.6545)
+
 [node name="CollisionShape3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.552719, 8)
 use_collision = true
